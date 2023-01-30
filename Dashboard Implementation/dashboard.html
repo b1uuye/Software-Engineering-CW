@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://kit.fontawesome.com/3b9c76ecc4.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css"/>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gantt']});
+      google.charts.setOnLoadCallback(drawChart);
+  
+      function drawChart() {
+  
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Task ID');
+        data.addColumn('string', 'Task Name');
+        data.addColumn('string', 'Resource');
+        data.addColumn('date', 'Start Date');
+        data.addColumn('date', 'End Date');
+        data.addColumn('number', 'Duration');
+        data.addColumn('number', 'Percent Complete');
+        data.addColumn('string', 'Dependencies');
+  
+        data.addRows([
+          ['2014Spring', 'Data Structures and Algorithms', 'spring',
+           new Date(2022, 2, 1), new Date(2022, 5, 20), null, 100, null],
+          ['2014Summer', 'Software Engineering', 'summer',
+           new Date(2022, 2, 1), new Date(2022, 5, 20), null, 100, null],
+          ['2014Autumn', 'Foundations of Data Science', 'autumn',
+           new Date(2022, 2, 1), new Date(2022, 5, 20), null, 100, null],
+          ['2014Winter', 'Synoptic Project', 'winter',
+           new Date(2022, 5, 25), new Date(2022, 6, 16), null, 45, null],
+ 
+        ]);
+  
+        var options = {
+          height: 200,
+          gantt: {
+            trackHeight: 30
+          }
+        };
+  
+        var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+  
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <section id="sidebar">
+        <section class="title-container">
+            <h1><i class="fa-solid fa-user-graduate"></i>STUDYPLANNER</h1>
+        </section>
+        <section class="links-container">
+            <div class="links">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+                <span><a href="/dashboard.html">Dashboard</a></span>
+            </div>
+            <div class="links">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                </div>
+                <span><a href="/modules.html">Modules</a></span>
+            </div>
+            <div class="links">
+                <div class="icon">
+                    <i class="fa-solid fa-chart-bar"></i>
+                </div>
+                <span><a href="/work.html">Work</a></span>
+            </div>
+            <div class="links">
+                <div class="icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <span><a href="/timetable.html">Timetable</a></span>
+            </div>
+            <div class="links">
+                <div class="icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+                <span><a href="/home" action="/logout?_method=DELETE" method= "POST">Log Out</a></span>
+            </div>
+        </section>
+    </section>
+    <section id="main-dashboard-content">
+        <section id="top-section">
+            <div class="input-box">
+                <input Placeholder="Search...">
+                <div>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="action-icon">
+                <div class="action-icon-one"></div>
+                <div class="action-icon-two"></div>
+            </div>
+        </section>
+            <h1 id="welcome-title">Welcome back </h1>
+            <section id="grid-container">
+                <div class="grid-item one">
+                    <h1><a href="https://www.uea.su/">UEA SU</h1>
+                    <img src="images/uea su logo.png" alt="SU logo"></a>
+                </div>
+                <div class="grid-item two">
+                    <h1><a href="https://www.uea.ac.uk/about/news">UEA NEWS</h1></a>
+                    <h1><a href="https://booker.uea.ac.uk/">BOOKER</a></h1>
+                    <h1><a href="https://www.uea.ac.uk/uea-life/accommodation">Accomodation</a></h1>
+                    <h1><a href="https://www.uea.su/opportunities/societies/">Join a Society</a></h1>
+                </div>
+                <div class="grid-item three">
+                    <h1>Semester Plan</h1>
+                    <h1>
+                        ---------------------------------------------------------------------------------------------------------------
+                    </h1>
+                    <section id="grid-container">
+                        <div id="chart_div"></div>
+                    </section>
+                </div>
+                <div class="grid-item four">
+                    <h1>Updates and Information</h1>
+                </div>
+            </section>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <a href="/" action="/logout?_method=DELETE" method= "POST">Log Out</a>
+
+
+
+
+
+<form action="/logout?_method=DELETE" method= "POST">
+    <button type="submit"> LOG OUT</button>
+</form> -->
